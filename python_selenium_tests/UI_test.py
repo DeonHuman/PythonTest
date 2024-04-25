@@ -93,7 +93,7 @@ def camino(self):
 # API test 1 : get the list of movies and assert that the count of films is equal to 7, this particular api site I used returns 7
 print("this is API test 1")
 
-#browsing to the api page which returns all of the films
+#doing a get request to the api link which returns all of the films
 response = requests.get('https://swapi.py4e.com//api/films')
 # assigning the response from the get api call to a variable to that i can assert for a value in the response, 
 api_response_text = response.text
