@@ -8,28 +8,27 @@ on: [push]
 
 jobs:
 
-  run-script:
+    run-script:
 
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+         steps:
 
-  steps:
+        - name: Checkout repository
 
-  - name: Checkout repository
+          uses: actions/checkout@v2
 
-  uses: actions/checkout@v2
+        - name: Set up Python
 
-  - name: Set up Python
+          uses: actions/setup-python@v2
 
-  uses: actions/setup-python@v2
+          with:
 
-  with:
+          python-version: '3.9'
 
-  python-version: '3.9'
+        - name: Install dependencies
 
-  - name: Install dependencies
+          run: pip install -r requirements.txt
 
-  run: pip install -r requirements.txt
+        - name: Run script
 
-  - name: Run script
-
-  run: python UI_test.py
+          run: python UI_test.py
