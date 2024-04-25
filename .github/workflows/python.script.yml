@@ -28,4 +28,4 @@ jobs:
         run: pip install --upgrade pip
 
       - name: Run script
-        run: C:\Program Files\Git\PythonTest\python_selenium_tests\python UI_test.py
+        run: python UI_test.py
