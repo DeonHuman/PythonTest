@@ -1,35 +1,31 @@
-name: Python Script
+name: Python Script CI/CD
 
-  
-
-on: [push]
-
-  
+on:
+  push:
+    branches:
+      - main  
 
 jobs:
+  run-script:
+    name: Run Python Script
+    runs-on: windows-latest
 
-run-script:
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-runs-on: ubuntu-latest
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'  # Specify the Python version you need
+          
+      - name: Set up node.js   
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-steps:
+      - name: Install dependencies
+        run: pip install --upgrade pip
 
-- name: Checkout repository
-
-uses: actions/checkout@v2
-
-- name: Set up Python
-
-uses: actions/setup-python@v2
-
-with:
-
-python-version: '3.9'
-
-- name: Install dependencies
-
-run: pip install -r requirements.txt
-
-- name: Run script
-
-run: python UI_test.py
+      - name: Run script
+        run: C:\Program Files\Git\PythonTest\python_selenium_tests\python UI_test.py
